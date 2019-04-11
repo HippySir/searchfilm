@@ -1,0 +1,11 @@
+{
+  "pages": [
+    "pages/index/main"],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#42bd56",
+    "navigationBarTitleText": "牛逼电影院",
+    "navigationBarTextStyle": "white"
+  }
+ 
+}

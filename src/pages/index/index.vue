@@ -1,0 +1,210 @@
+<template>
+  <div class="bigcontiner">
+    <topbarsd></topbarsd>
+    <!-- 影院热映 -->
+    <div class="hotfilm">
+      <div class="toptitle">
+        <div class="topleft">影院热映</div>
+        <div class="topright">更多</div>
+      </div>
+      <!-- 微信小程序的滑动页 -->
+      <!-- 热门电影 -->
+      <scroll-view scroll-x class="slideFile">
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+      </scroll-view>
+    </div>
+    <!-- top250 -->
+    <div class="hotfilm">
+      <div class="toptitle">
+        <div class="topleft">top250</div>
+        <div class="topright">更多</div>
+      </div>
+      <!-- 微信小程序的滑动页 -->
+      <!-- 热门电影 -->
+      <scroll-view scroll-x class="slideFile">
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+        <view class="fileItem">
+          <img
+            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
+            alt
+          >
+          <div class="bottom">
+            <text>反贪风暴4</text>
+            <div class="score">
+              <starscore drops="6"></starscore>
+              <text>6</text>
+            </div>
+          </div>
+        </view>
+      </scroll-view>
+      <!-- top250 -->
+
+      <!-- <starscore drops="9"></starscore> -->
+    </div>
+  </div>
+</template>
+
+<script>
+// 导入顶部栏
+import topbarsd from "../../components/topbar";
+// 导入评分的星星
+import starscore from "../../components/star.vue";
+export default {
+  data() {
+    return {};
+  },
+
+  methods: {},
+  components: {
+    topbarsd,
+    starscore
+  },
+  mounted() {
+    wx.request({
+      url: "https://douban.wangboqing.top/v2/movie/in_theaters",
+      success: function(res) {
+        console.log(res);
+      }
+    });
+  }
+};
+</script>
+
+<style scoped lang="less">
+@clolor: #42bd56;
+.bigcontiner {
+  // 头部样式代码
+  .hotfilm {
+    .toptitle {
+      display: flex;
+      height: 150rpx;
+      justify-content: space-between;
+      padding: 0 35rpx;
+      font-size: 20px;
+      line-height: 150rpx;
+      .topright {
+        color: #42bd56;
+      }
+    }
+    // 热门电影
+    .slideFile {
+      width: 100%;
+      white-space: nowrap;
+      height: 400rpx;
+      .fileItem {
+        display: inline-block;
+        width: 33.33%;
+        text-align: center;
+        &:first-child {
+          margin-left: 35rpx;
+        }
+        &:last-child {
+          margin-right: 35rpx;
+        }
+        height: 400rpx;
+        img {
+          width: 90%;
+          height: 286rpx;
+        }
+        .bottom {
+          text-align: center;
+          .score {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}
+</style>
