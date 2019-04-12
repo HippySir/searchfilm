@@ -19,6 +19,7 @@
         </view>
       </div>
     </div>
+    <div v-show="!isRefsh" class="aleadybottom">已经见底了，不要再刷新了！</div>
   </div>
 </template>
 
@@ -32,15 +33,17 @@ import myrequest from "../../utils/myrequest.js";
 export default {
   data() {
     return {
-      filetheme:"",
+      filetheme: "",
       fileList: [],
+      filenew: [],
       option: {
         start: 0,
         count: 9,
         city: "深圳",
         url: "",
         method: "GET"
-      }
+      },
+      isRefsh: true
     };
   },
 
@@ -51,9 +54,9 @@ export default {
   },
   mounted() {
     console.log(this.$root.$mp.query);
-    if(this.$root.$mp.query.path == "in_theaters"){
+    if (this.$root.$mp.query.path == "in_theaters") {
       this.filetheme = "影院热映";
-    }else{
+    } else {
       this.filetheme = "top250";
     }
     this.option.url = this.$root.$mp.query.path;
@@ -61,6 +64,38 @@ export default {
       console.log(res);
       this.fileList = res.data.subjects;
       console.log(this.fileList);
+      wx.hideLoading();
+    });
+    // 滚动函数
+  },
+  // 触底加载更多事件
+  onReachBottom() {
+    if (this.isRefsh) {
+      this.option.start += this.option.count;
+      myrequest(this.option).then(res => {
+        if(res.data.subjects.length == 0){
+          this.isRefsh = false;
+           wx.hideLoading();
+          return false;
+        }
+        console.log(res);
+        this.filenew = res.data.subjects;
+        this.fileList = this.fileList.concat(this.filenew);
+        console.log(this.fileList);
+        wx.hideLoading();
+      });
+    }
+  },
+  // 下拉刷新事件
+  onPullDownRefresh() {
+     this.isRefsh = true;
+    this.option.start = 0;
+    this.fileList = [];
+    myrequest(this.option).then(res => {
+      this.fileList = res.data.subjects;
+      console.log(this.fileList);
+      wx.hideLoading();
+      wx.stopPullDownRefresh();
     });
   }
 };
@@ -97,7 +132,7 @@ export default {
           height: 286rpx;
         }
         .bottom {
-            text-align: center;
+          text-align: center;
           .filename {
             font-size: 14px;
             overflow: hidden;
@@ -113,6 +148,10 @@ export default {
         }
       }
     }
+  }
+  .aleadybottom{
+    font-size: 12px;
+    text-align: center
   }
 }
 </style>

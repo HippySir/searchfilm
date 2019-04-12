@@ -1,6 +1,10 @@
 function myrequest(option) {
-    console.log(option);
+    // console.log(option);
   return new Promise(function(resolve, reject) {
+    wx.showLoading({
+        title: '亲，请你稍等哟！',
+        mask:true
+    });
     wx.request({
       url: `https://autumnfish.cn/v2/movie/${option.url}`,
       data: {

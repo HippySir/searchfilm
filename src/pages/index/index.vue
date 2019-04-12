@@ -88,10 +88,12 @@ export default {
   mounted() {
     myrequest(this.option).then(res => {
       this.hotfilemList = res.data.subjects;
+      wx.hideLoading();
       console.log(res);
     });
     myrequest(this.optiona).then(res => {
       this.topfileList = res.data.subjects;
+      wx.hideLoading();
       console.log(res);
     });
   }
