@@ -10,55 +10,14 @@
       <!-- 微信小程序的滑动页 -->
       <!-- 热门电影 -->
       <scroll-view scroll-x class="slideFile">
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
+        <view class="fileItem" v-for="(item,index) in hotfilemList" :key="index">
+          <img :src="item.images.small" alt>
           <div class="bottom">
-            <text>反贪风暴4</text>
+            <text class="filename">{{item.title}}</text>
             <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
-            </div>
-          </div>
-        </view>
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
-          <div class="bottom">
-            <text>反贪风暴4</text>
-            <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
-            </div>
-          </div>
-        </view>
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
-          <div class="bottom">
-            <text>反贪风暴4</text>
-            <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
-            </div>
-          </div>
-        </view>
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
-          <div class="bottom">
-            <text>反贪风暴4</text>
-            <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
+              <starscore :drops="item.rating.average" v-if="item.rating.average != 0"></starscore>
+              <text v-if="item.rating.average != 0">{{item.rating.average}}</text>
+              <text v-else>暂无评分！</text>
             </div>
           </div>
         </view>
@@ -73,55 +32,14 @@
       <!-- 微信小程序的滑动页 -->
       <!-- 热门电影 -->
       <scroll-view scroll-x class="slideFile">
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
+        <view class="fileItem" v-for="(item,index) in topfileList" :key="index">
+          <img :src="item.images.small" alt>
           <div class="bottom">
-            <text>反贪风暴4</text>
+            <text class="filename">{{item.title}}</text>
             <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
-            </div>
-          </div>
-        </view>
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
-          <div class="bottom">
-            <text>反贪风暴4</text>
-            <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
-            </div>
-          </div>
-        </view>
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
-          <div class="bottom">
-            <text>反贪风暴4</text>
-            <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
-            </div>
-          </div>
-        </view>
-        <view class="fileItem">
-          <img
-            src="https://img3.doubanio.com/view/photo/s_ratio_poster/public/p2551353482.webp"
-            alt
-          >
-          <div class="bottom">
-            <text>反贪风暴4</text>
-            <div class="score">
-              <starscore drops="6"></starscore>
-              <text>6</text>
+              <starscore :drops="item.rating.average" v-if="item.rating.average != 0"></starscore>
+              <text v-if="item.rating.average != 0">{{item.rating.average}}</text>
+              <text v-else>暂无评分！</text>
             </div>
           </div>
         </view>
@@ -138,9 +56,28 @@
 import topbarsd from "../../components/topbar";
 // 导入评分的星星
 import starscore from "../../components/star.vue";
+// 导入自己的请求方法
+import myrequest from "../../utils/myrequest.js";
 export default {
   data() {
-    return {};
+    return {
+      option: {
+        url: "top250",
+        start: 0,
+        count: 9,
+        city: "深圳",
+        method: "GET"
+      },
+      optiona: {
+        url: "in_theaters",
+        start: 0,
+        count: 9,
+        city: "深圳",
+        method: "GET"
+      },
+      hotfilemList: [],
+      topfileList: []
+    };
   },
 
   methods: {},
@@ -149,11 +86,13 @@ export default {
     starscore
   },
   mounted() {
-    wx.request({
-      url: "https://douban.wangboqing.top/v2/movie/in_theaters",
-      success: function(res) {
-        console.log(res);
-      }
+    myrequest(this.option).then(res => {
+      this.hotfilemList = res.data.subjects;
+      console.log(res);
+    });
+    myrequest(this.optiona).then(res => {
+      this.topfileList = res.data.subjects;
+      console.log(res);
     });
   }
 };
@@ -197,10 +136,19 @@ export default {
         }
         .bottom {
           text-align: center;
+          .filename {
+            overflow: hidden; //盒子溢出隐藏
+            text-overflow: ellipsis; //文字溢出显示省略号
+            white-space: nowrap; //文字不换行
+            font-size: 14px;
+          }
           .score {
             display: flex;
             align-items: center;
             justify-content: center;
+            text {
+              font-size: 12px;
+            }
           }
         }
       }

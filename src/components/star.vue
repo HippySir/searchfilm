@@ -1,5 +1,6 @@
 <template>
      <div class="star">
+       
          <img src="../../static/images/a.png" alt="">
          <img v-show="drops>2" src="../../static/images/a.png" alt="">
          <img v-show="drops<=2" src="../../static/images/b.png" alt="">
