@@ -4,8 +4,8 @@
     <!-- 影院热映 -->
     <div class="hotfilm">
       <div class="toptitle">
-        <div class="topleft">影院热映</div>
-        <div class="topright">更多</div>
+        <div class="topleft">top250</div>
+        <navigator class="topright" url="/pages/morefile/main?path=top250" >更多</navigator>
       </div>
       <!-- 微信小程序的滑动页 -->
       <!-- 热门电影 -->
@@ -26,8 +26,8 @@
     <!-- top250 -->
     <div class="hotfilm">
       <div class="toptitle">
-        <div class="topleft">top250</div>
-        <div class="topright">更多</div>
+        <div class="topleft">影院热映</div>
+        <navigator class="topright" url="/pages/morefile/main?path=in_theaters" >更多</navigator>
       </div>
       <!-- 微信小程序的滑动页 -->
       <!-- 热门电影 -->
