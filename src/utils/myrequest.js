@@ -5,6 +5,7 @@ function myrequest(option) {
         title: '亲，请你稍等哟！',
         mask:true
     });
+    wx.showNavigationBarLoading();
     wx.request({
       url: `https://autumnfish.cn/v2/movie/${option.url}`,
       data: {

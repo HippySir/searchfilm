@@ -65,6 +65,7 @@ export default {
       this.fileList = res.data.subjects;
       console.log(this.fileList);
       wx.hideLoading();
+      wx.hideNavigationBarLoading();
     });
     // 滚动函数
   },
@@ -73,9 +74,14 @@ export default {
     if (this.isRefsh) {
       this.option.start += this.option.count;
       myrequest(this.option).then(res => {
-        if(res.data.subjects.length == 0){
+        if (res.data.subjects.length == 0) {
           this.isRefsh = false;
-           wx.hideLoading();
+          wx.showToast({
+            title: "没有更多的数据了！",
+            icon: "success"
+          });
+          wx.hideNavigationBarLoading();
+          wx.hideLoading();
           return false;
         }
         console.log(res);
@@ -83,12 +89,13 @@ export default {
         this.fileList = this.fileList.concat(this.filenew);
         console.log(this.fileList);
         wx.hideLoading();
+        wx.hideNavigationBarLoading();
       });
     }
   },
   // 下拉刷新事件
   onPullDownRefresh() {
-     this.isRefsh = true;
+    this.isRefsh = true;
     this.option.start = 0;
     this.fileList = [];
     myrequest(this.option).then(res => {
@@ -96,6 +103,7 @@ export default {
       console.log(this.fileList);
       wx.hideLoading();
       wx.stopPullDownRefresh();
+      wx.hideNavigationBarLoading();
     });
   }
 };
@@ -149,9 +157,9 @@ export default {
       }
     }
   }
-  .aleadybottom{
+  .aleadybottom {
     font-size: 12px;
-    text-align: center
+    text-align: center;
   }
 }
 </style>
