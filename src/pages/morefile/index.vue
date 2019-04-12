@@ -3,7 +3,7 @@
     <topbarsd></topbarsd>
     <div class="hotfilm">
       <div class="toptitle">
-        <div class="topleft">top250</div>
+        <div class="topleft">{{filetheme}}</div>
       </div>
       <div class="listContainer">
         <view class="fileItem" v-for="(item,index) in fileList" :key="index">
@@ -32,6 +32,7 @@ import myrequest from "../../utils/myrequest.js";
 export default {
   data() {
     return {
+      filetheme:"",
       fileList: [],
       option: {
         start: 0,
@@ -50,6 +51,11 @@ export default {
   },
   mounted() {
     console.log(this.$root.$mp.query);
+    if(this.$root.$mp.query.path == "in_theaters"){
+      this.filetheme = "影院热映";
+    }else{
+      this.filetheme = "top250";
+    }
     this.option.url = this.$root.$mp.query.path;
     myrequest(this.option).then(res => {
       console.log(res);
