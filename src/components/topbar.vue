@@ -4,11 +4,11 @@
     <div class="left">
       <a class="title" href="#">冲天炮</a>
       <a class="titleicon" href="#">
-        <icon type="search" size="24" class="icontt" color="#42bd56"/>
+        <icon type="search" size="24" class="icontt" color="#3c434a"/>
       </a>
     </div>
     <div class="right">
-      <button>打开豆瓣APP</button>
+      <button>勇洋</button>
     </div>
   </div>
 </template>
@@ -18,7 +18,7 @@ export default {};
 </script>
 
 <style lang="less">
-@clolor: #42bd56;
+@clolor: #3c434a;
 .header {
   color: @clolor;
   // background-color:red;

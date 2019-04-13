@@ -103,7 +103,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-@clolor: #42bd56;
+@clolor: #3c434a;;
 .bigcontiner {
   // 头部样式代码
   .hotfilm {
@@ -115,7 +115,7 @@ export default {
       font-size: 20px;
       line-height: 150rpx;
       .topright {
-        color: #42bd56;
+        color:#3c434a;;
       }
     }
     // 热门电影

@@ -4,7 +4,7 @@
     "pages/morefile/main"],
   "window": {
     "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#42bd56",
+    "navigationBarBackgroundColor": "#3c434a",
     "navigationBarTitleText": "牛逼电影院",
     "navigationBarTextStyle": "white"
   }
