@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/main",
-    "pages/morefile/main"],
+    "pages/morefile/main",
+    "pages/filedetail/main"],
   "window": {
     "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#3c434a",

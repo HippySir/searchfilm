@@ -10,7 +10,7 @@
       <!-- 微信小程序的滑动页 -->
       <!-- 热门电影 -->
       <scroll-view scroll-x class="slideFile">
-        <view class="fileItem" v-for="(item,index) in hotfilemList" :key="index">
+        <a class="fileItem" v-for="(item,index) in hotfilemList" :key="index" :href="'/pages/filedetail/main?id='+item.id">
           <img :src="item.images.small" alt>
           <div class="bottom">
             <text class="filename">{{item.title}}</text>
@@ -20,7 +20,7 @@
               <text v-else>暂无评分！</text>
             </div>
           </div>
-        </view>
+        </a>
       </scroll-view>
     </div>
     <!-- top250 -->
@@ -32,7 +32,7 @@
       <!-- 微信小程序的滑动页 -->
       <!-- 热门电影 -->
       <scroll-view scroll-x class="slideFile">
-        <view class="fileItem" v-for="(item,index) in topfileList" :key="index">
+        <a class="fileItem" v-for="(item,index) in topfileList" :key="index" :href="'/pages/filedetail/main?id='+item.id">
           <img :src="item.images.small" alt>
           <div class="bottom">
             <text class="filename">{{item.title}}</text>
@@ -42,7 +42,7 @@
               <text v-else>暂无评分！</text>
             </div>
           </div>
-        </view>
+        </a>
       </scroll-view>
       <!-- top250 -->
 
