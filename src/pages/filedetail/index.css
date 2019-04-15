@@ -1,0 +1,104 @@
+.detailbox .filmintroduction {
+  padding: 0 20rpx;
+}
+.detailbox .filmintroduction .fileName {
+  margin-top: 30rpx;
+}
+.detailbox .filmintroduction .fileContent {
+  display: flex;
+  justify-content: space-between;
+}
+.detailbox .filmintroduction .fileContent .left {
+  flex: 1;
+}
+.detailbox .filmintroduction .fileContent .left .fileScores {
+  display: flex;
+  line-height: 45rpx;
+  height: 45rpx;
+  font-size: 12px;
+}
+.detailbox .filmintroduction .fileContent .left .fileScores .filescorenum {
+  margin-right: 10rpx;
+  margin-left: 20rpx;
+}
+.detailbox .filmintroduction .fileContent .left .fileScores .fileevaluate {
+  color: #ccc;
+}
+.detailbox .filmintroduction .fileContent .left .fileillustrate {
+  margin-right: 15rpx;
+  margin-top: 20rpx;
+  font-size: 14px;
+  font-family: "微软雅黑";
+}
+.detailbox .filmintroduction .fileContent .right {
+  width: 180rpx;
+}
+.detailbox .filmintroduction .fileContent .right img {
+  width: 180rpx;
+  height: 286rpx;
+}
+.detailbox .btuuon {
+  display: flex;
+  padding: 20rpx;
+  justify-content: space-between;
+}
+.detailbox .btuuon .wanttosee {
+  border: 1px solid #fddd0b;
+  border-radius: 5rpx;
+  width: 340rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #fddd0b;
+}
+.detailbox .btuuon .haveseen {
+  border: 1px solid #fddd0b;
+  border-radius: 10rpx;
+  width: 340rpx;
+  line-height: 60rpx;
+  text-align: center;
+  color: #fddd0b;
+}
+.detailbox .channel {
+  padding: 0 10rpx;
+  margin-top: 20rpx;
+}
+.detailbox .channel .channelWord {
+  line-height: 60rpx;
+  height: 60rpx;
+  color: #ccc;
+}
+.detailbox .channel .channelItems {
+  display: flex;
+  flex-wrap: wrap;
+}
+.detailbox .channel .channelItems .channelItem {
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  line-height: 50rpx;
+  height: 60rpx;
+  color: green;
+  border: 1rpx solid aqua;
+  padding: 0 20rpx;
+  border-radius: 30rpx;
+  background-color: aquamarine;
+  padding-top: 5rpx;
+}
+.detailbox .paradiseFalls {
+  padding: 0 20rpx;
+  margin-top: 20rpx;
+}
+.detailbox .paradiseFalls .storyTitle {
+  line-height: 100rpx;
+  height: 100rpx;
+  color: #ccc;
+}
+.detailbox .paradiseFalls .storyDetail {
+  font-size: 14px;
+}
+.detailbox .paradiseFalls .active {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

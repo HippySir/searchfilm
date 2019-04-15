@@ -6,7 +6,7 @@
         <div class="topleft">{{filetheme}}</div>
       </div>
       <div class="listContainer">
-        <view class="fileItem" v-for="(item,index) in fileList" :key="index">
+        <a class="fileItem" v-for="(item,index) in fileList" :key="index" :href="'/pages/filedetail/main?id='+item.id">
           <img :src="item.images.small" alt>
           <div class="bottom">
             <text class="filename">{{item.title}}</text>
@@ -16,7 +16,7 @@
               <text v-else>暂无评分！</text>
             </div>
           </div>
-        </view>
+        </a>
       </div>
     </div>
     <div v-show="!isRefsh" class="aleadybottom">已经见底了，不要再刷新了！</div>

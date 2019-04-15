@@ -1,0 +1,114 @@
+.detailbox {
+   
+    .filmintroduction {
+        padding: 0 20rpx;
+        .fileName{
+            margin-top: 30rpx;
+        }
+        .fileContent {
+            display: flex;
+            justify-content: space-between;
+            .left {
+                flex: 1;
+                .fileScores {
+                    display: flex;
+                    line-height: 45rpx;
+                    height: 45rpx;
+                    font-size: 12px;
+                    .filescorenum {
+                      margin-right:10rpx;
+                      margin-left:20rpx;
+                    }
+                    .fileevaluate {
+                       
+                        color:#ccc;
+                    }
+                }
+                .fileillustrate {
+                    margin-right: 15rpx;
+                    margin-top: 20rpx;
+                    font-size: 14px;
+                    font-family: "微软雅黑";
+                    
+                }
+            }
+            .right {
+                width: 180rpx;
+                img {
+                    width: 180rpx;
+                    height: 286rpx;
+                }
+            }
+        }
+    }
+    // 按钮
+    .btuuon {
+        display: flex;
+        padding: 20rpx;
+        justify-content: space-between;
+        .wanttosee {
+            border: 1px solid #fddd0b;
+            border-radius: 5rpx;
+            width: 340rpx;
+            line-height: 60rpx;
+            text-align: center;
+            color: #fddd0b;
+        }
+        .haveseen {
+            border: 1px solid #fddd0b;
+            border-radius: 10rpx;
+            width: 340rpx;
+            line-height: 60rpx;
+            text-align: center;
+            color: #fddd0b;
+        }
+    }
+    // 所属频道
+    .channel {
+        padding: 0 10rpx;
+        margin-top: 20rpx;
+        .channelWord {
+            line-height: 60rpx;
+            height: 60rpx;
+            color: #ccc;
+        }
+        .channelItems {
+            display: flex;
+            flex-wrap: wrap;
+            
+            .channelItem {
+                margin-right: 20rpx;
+                margin-top: 20rpx;
+                line-height: 50rpx;
+                height: 60rpx;
+                color: green;
+                border: 1rpx solid aqua;
+                padding: 0 20rpx;
+                border-radius: 30rpx;
+                background-color: aquamarine;
+               padding-top: 5rpx;
+            }
+        }
+    }
+    // 剧情简介
+    .paradiseFalls {
+        padding: 0 20rpx;
+        margin-top: 20rpx;
+        .storyTitle {
+            line-height: 100rpx;
+            height: 100rpx;
+            color: #ccc;
+           
+        }
+        .storyDetail {
+            font-size: 14px;   
+        }
+        .active {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+    }
+}
